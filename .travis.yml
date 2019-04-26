@@ -22,3 +22,14 @@ script: true
  # Another command/method to run tests
 script: 
   - python TestCalculator.py
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 6b26dae9-1bc3-4702-91d3-44001b6511ba
+  app: my-githubtesting
+  on:
+    repo: MSKN-Ho/GithubTesting
+  #Setting your heroku Procfile here!!!
+  run:
+    "web: gunicorn app_run:app"
